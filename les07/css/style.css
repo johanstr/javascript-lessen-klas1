@@ -1,0 +1,28 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+fieldset {
+	border: 1px solid lightgrey;
+	border-radius: 10px;
+	padding: 0px 10px 10px 10px;
+	margin: 10px 0px;
+}
+
+legend {
+	font-family: Helvetica;
+	font-size: 10px;
+	font-style: italic;
+	color: lightgrey;
+	border: none !important;
+	width: auto;
+}
+
+button.ruimte {
+	margin: 10px 0px;
+}
+
+i.glyphicon-trash {
+	cursor: pointer;
+}

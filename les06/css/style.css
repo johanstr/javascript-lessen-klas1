@@ -1,0 +1,75 @@
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+#button-container {
+    height: 40px;
+    width: 100%;
+    background-color: #e2e2e2;
+    padding: 30px 20px;
+    margin-bottom: 30px;
+}
+
+#button-container button {
+    padding: 10px 10px;
+    margin: 0px 20px;
+    cursor: pointer;
+}
+
+#panel-container {
+    width: 100%;
+    padding: 10px 40px;
+    height: 400px;
+}
+
+#panel-container .panel {
+    float: left;
+    height: 98px;
+    width: 199px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    border: 1px solid darkblue;
+    border-radius: 5px;
+}
+
+.panel .panel-heading {
+    float: left;
+    height: 20px;
+    color: #fff;
+    background-color: darkblue;
+    width: 189px;
+    padding: 5px 0px 5px 10px;
+}
+
+.panel .panel-content {
+    float: left;
+    height: 68px;
+    width: 189px;
+    padding: 5px 5px;
+}
+
+.rood {
+    background-color: red !important;
+}
+
+.groen {
+    background-color: green !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

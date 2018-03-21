@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang='nl'>
+<head>
+   <title>Formulieren en controle</title>
+</head>
+<body>
+    <form>
+        Voornaam: <input id="voornaam" type="text"><br/>
+        Achternaam: <input id="achternaam" type="text"><br/>
+        Leeftijd: <input id="leeftijd" type="number"><br/>
+    </form>
+
+    <script>
+        var voornaam = document.getElementById('voornaam');
+        var achternaam = document.getElementById('achternaam');
+        var leeftijd = document.getElementById('leeftijd');
+
+        voornaam.addEventListener('keypress', voornaamKeyPressed);
+        achternaam.addEventListener('keydown', achternaamKeyDown);
+        leeftijd.addEventListener('keyup', leeftijdKeyUp);
+        leeftijd.addEventListener('blur', leeftijdOnBlur);
+
+        function voornaamKeyPressed(event) {
+            console.log(event.key);
+        }
+
+        function achternaamKeyDown(event) {
+            console.log(event.key);
+        }
+
+        function leeftijdKeyUp(event) {
+            console.log(event.key);
+        }
+
+        function leeftijdOnBlur(event) {
+            console.log(event);
+        }
+    </script>
+</body>
+</html>

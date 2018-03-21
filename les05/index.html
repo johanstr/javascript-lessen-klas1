@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05 - DOM Herhaling</title>
+
+    <style>
+        .col-left {
+            display: block;
+            float: left;
+            width: 50%;
+            height: 100vh;
+        }
+
+        .col-right {
+            display: block;
+            float: left;
+            width: 49%;
+            height: 100vh;
+        }
+
+        #lijst {
+
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        img {
+            width: 100px;
+            height: auto;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Les 05 - Herhaling DOM</h1>
+
+    <div class="col-left">
+        <h4>Lijst:</h4>
+        <ul id="lijst">
+    
+        </ul>
+        <button onclick="appendItem()">Voeg een item toe</button>
+    </div>
+
+    <div class="col-right">
+        <h4>Image</h4>
+        <img src="img/test.png" />
+    </div>
+    
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

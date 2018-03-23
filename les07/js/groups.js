@@ -14,6 +14,7 @@ $( function() {
 	var $fieldSet = $('fieldset');
 	var $addButton = $fieldSet.find('button');
 	var $formGroup = $fieldSet.find('.form-group').first();
+	var $newFormGroup = null;
 
 	$addButton.click( function(e) {
 		/*
@@ -26,7 +27,9 @@ $( function() {
 		 * Met de functie .clone() maken we een kopie van de formGroup-div
 		 * en die stoppen we in dit geval in de variabele $newFormGroup
 		 */
-		var $newFormGroup = $formGroup.clone();
+		$newFormGroup = $formGroup.clone();
+		$($newFormGroup.children()[1]).val('');
+		//$newFormGroup.find('input').value('');
 
 		/*
 		 * We voegen nu een icon aan het eind van de div toe

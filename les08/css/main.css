@@ -1,0 +1,322 @@
+/* ==========================================================================
+   http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+   ========================================================================== */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+@font-face {
+    font-family: SkylanderFont;
+    src: url('../fonts/pincoyablack.otf');
+}
+
+body, html {
+    /*background-image: url('../img/bg.jpg');*/
+    /*-webkit-background-size: cover;*/
+    /*background-size: cover;*/
+    /*background-position: center center;*/
+    /*background-repeat: no-repeat;*/
+    font-family: Tahoma;
+    background-color: cornflowerblue;
+    height: 100vh;
+    width: 100vw;
+}
+
+.page-container {
+    width: 100vw;
+    padding: 0;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+.page-container > header {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 180px;
+    /*min-height: 180px;*/
+    /*max-height: 180px;*/
+    background-image: url('../img/banner.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.page-container > header > h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 150px;
+    color: white;
+    text-shadow: 3px 3px 8px #000;
+    font-family: SkylanderFont;
+    color: #ff0030;
+    line-height: 180px;
+    text-align: center;
+}
+
+.first-container {
+    margin-top: 15px;
+    padding-bottom: 25px;
+}
+
+.game-field {
+    border-radius: 10px;
+    border-top: 10px solid white;
+    border-bottom: 10px solid white;
+    border-right: 5px solid white;
+    border-left: 5px solid white;
+    background-color: white;
+    padding-left: 18px;
+}
+
+table.card-matrix {
+    background-color: white;
+    width: 100%;
+}
+
+table.card-matrix > tbody > tr > td {
+    padding: 5px;
+    width: 150px;
+    height: 150px;
+    max-width: 150px;
+    max-height: 150px;
+}
+
+.game-info {
+    border-radius: 10px;
+    border-top: 10px solid white;
+    border-bottom: 10px solid white;
+    border-right: 5px solid white;
+    border-left: 5px solid white;
+    background-color: white;
+}
+
+.game-info > header {
+    border-radius: 10px 10px 0px 0px;
+    background-color: seagreen;
+}
+
+.game-info > header > h1 {
+    display: inline-block;
+    width: 100%;
+    padding: 15px 15px 0px 15px;
+    font-size: 70px;
+    font-family: SkylanderFont;
+    color: crimson;
+    text-shadow: 3px 3px 8px #000;
+}
+
+.game-info > header > h3 {
+    display: inline-block;
+    width: 100%;
+    padding: 0px 15px 0px 15px;
+    font-size: 70px;
+    font-style: italic;
+    font-family: SkylanderFont;
+    color: crimson;
+    text-shadow: 3px 3px 8px #000;
+    text-align: center;
+}
+
+table.game-info-matrix {
+    background-color: white;
+    width: 100%;
+}
+
+table.game-info-matrix > thead {
+    width: 100%;
+    line-height: 40px;
+}
+
+table.game-info-matrix > thead > tr {
+    width: 100%;
+}
+
+table.game-info-matrix > thead > tr > th {
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: indigo;
+}
+
+table.game-info-matrix > thead > tr > th:first-child {
+    width: 70%;
+}
+
+table.game-info-matrix > thead > tr > th:last-child {
+    width: 30%;
+    text-align: center;
+}
+
+
+table.game-info-matrix > tbody {
+    width: 100%;
+    line-height: 40px;
+}
+
+table.game-info-matrix > tbody > tr {
+    width: 100%;
+}
+
+table.game-info-matrix > tbody > tr > td {
+    padding: 5px;
+    font-size: 20px;
+}
+
+table.game-info-matrix > tbody > tr > td:first-child {
+    width: 70%;
+}
+
+table.game-info-matrix > tbody > tr > td:last-child, td:nth-child(2) {
+    width: 30%;
+    text-align: center;
+}
+
+.game-btn {
+    padding: 20px 30px;
+    background-color: crimson;
+    color: white;
+    text-shadow: 3px 3px 8px #000;
+    font-size: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 40px 25%;
+    display: inline;
+    box-shadow: 3px 3px 8px #ccc;
+    border: none;
+}
+
+.game-btn:hover {
+    box-shadow: 4px 4px 8px #666;
+}
+
+/* table.card-matrix > tr > td {
+    position: relative;
+} */
+
+.play-card-img {
+    width: 150px;
+    height: 150px;
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 8px #ccc;
+    /* -webkit-perspective: 1000px;
+    perspective: 1000px; */
+    /*-webkit-transform-style: preserve-3d;*/
+    /*transform-style: preserve-3d;*/
+    /* -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
+    /*-webkit-transition: all 600ms;*/
+    /*transition: all 600ms;*/
+}
+
+.play-card-img:hover {
+    /*-webkit-transform: rotateX(20deg);*/
+    /*transform: rotateX(20deg);*/
+    box-shadow: 4px 4px 8px #666;
+}
+
+.play-card {
+    width: 150px;
+    height: 150px;
+    max-width: 150px;
+    max-height: 150px;
+    border: none !important;
+    position: relative;
+    /*-webkit-transition: -webkit-transform 1s;*/
+    /*-moz-transition: -moz-transform 1s;*/
+    /*-o-transition: -o-transform 1s;*/
+    transition: transform 1s;
+    /*-webkit-transform-style: preserve-3d;*/
+    /*-moz-transform-style: preserve-3d;*/
+    /*-o-transform-style: preserve-3d;*/
+    transform-style: preserve-3d;
+    /*-webkit-transform-origin: 50% 50%;*/
+    transform-origin: 50% 50%;
+    cursor: pointer;
+}
+.play-card div {
+    display: inline-block;
+    position: relative;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.play-card .front {
+    /* background: white; */
+}
+.play-card .back {
+    /* background: url('../img/cardback.jpg') no-repeat; */
+    -webkit-transform: rotateY( 180deg );
+    -moz-transform: rotateY( 180deg );
+    -o-transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
+}
+.play-card.flipped {
+    -webkit-transform: rotateY( 180deg );
+    -moz-transform: rotateY( 180deg );
+    -o-transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
+    /* left: -14px; */
+}
+
+.play-card.flipped > .front {
+    display: none !important;
+}
+
+.play-card.flipped > .back {
+    display: inline-block !important;
+} 
+
+.hidden {
+     display: none !important;
+}

@@ -87,6 +87,7 @@ function showThreads(data)
             thread_component.replace('@CONTENT@', data[rij].content.substr(1, 200));    // de content kan soms te groot worden
                                                                                         // met .substr(1,200) pakken we alleen
                                                                                         // de eerste 200 tekens van de content.
+
         thread_component = 
             thread_component.replace('@USERNAME@', data[rij].username);
 
@@ -102,15 +103,50 @@ function showThreads(data)
     }
 }
 
+
 /*
- * De onderstaande twee regels zijn (met jQuery) genoeg
- * om een AJAX-call naar de server te sturen.
+ * Om met vanilla JavaScript een AJAX-call te doen naar een PHP-bestand op een webserver
+ * moeten we eerst een functie bouwen die de call voor ons doet. Dat is de onderstaande functie
+ * 
+ * url          Dit is een string die we aan deze functie geven waarin de URL naar de server staat
+ * callback     Dit is een functie die we willen laten uitvoeren als de call succesvol is geweest
+ *              We noemen dit een callback-function
  */
-$.ajax(link_server)
-    .done( showThreads );
+function ajax_get( url, callback )
+{
+    var ajax = new XMLHttpRequest();
+    ajax.onreadystatechange = function() {
+        if(ajax.readyState == 4 && ajax.status == 200) {
+            // Alles is goed gegaan
+            try {
+                // Nu proberen we de database gegevens binnen te halen
+                // Met JSON.parse zetten we de response text van de server om
+                // naar een JavaScript array met per rij een object.
+                var data = JSON.parse(ajax.responseText);
+            } catch(error) {
+                // Mocht er hierboven nog een fout optreden dan vangen we die hier op.
+                console.log(error.message);
+                return;                         // En stop het verder uitvoeren van deze functie dan ook maar
+            }
+
+            // Nu roepen we de callback-function aan
+            // In ons geval is dat de functie showThreads
+            callback(data);
+        }
+    };
+
+    // De verbinding openen
+    // 'GET'    Geeft aan dat het om een HTTP GET request gaat
+    // true     Geeft aan dat het om een asynchrone call gaat.
+    //          Dit wil zeggen dat als de call gedaan is dat onze code niet gaat wachten
+    //          op de reactie van de server, maar gewoon verder gaat.
+    ajax.open( 'GET', url, true );
+
+    // Nu gaan we de call (verzoek) versturen naar de server
+    ajax.send();
+}
+
 /*
- * De regel hierboven is nodig om jQuery te vertellen
- * welke functie moet worden uitgevoerd als de 
- * AJAX-call afgehandeld is en er dus een response
- * van de server is gekomen.
+ * Hieronder maken we gebruik van onze zelfgebouwde functie (hierboven) om de call te doen
  */
+ajax_get( link_server, showThreads );

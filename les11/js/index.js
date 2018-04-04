@@ -3,18 +3,19 @@
 *   Deze gaan we gebruiken om met AJAX en jQuery de index pagina te vullen
 *   met database gegevens.
 */
-var link_server = "http://localhost/school/1718/klas1/js/lessen/les10/app/api.php?page=thread&id=1";
+var link_server = "http://localhost/school/1718/klas1/js/lessen/les11/app/api.php?page=thread&id=1";
 
 /*
  * component is een variabele waarin alle HTML-code staat die we willen gebruiken
- * om iedere thread op een juiste manier in de pagina te kunnen injecteren.
+ * om iedere topic op een juiste manier in de pagina te kunnen injecteren.
  * In deze string staan een aantal placeholders, nl:
- *      @TITLE@         Deze vervangen we later door de echte titel van een thread
- *      @CONTENT@       Deze vervangen we later door de echte content van een thread
- *      @USERNAME@      Deze vervangen we later door de echte username van de user die de thread heeft gemaakt
- *      @TOPICCOUNT@    Deze vervangen we later door het echte aantal topics van een thread
+ *      @TOPICTITLE@        Deze vervangen we later door de echte titel van een topic
+ *      @TOPICCONTENT@      Deze vervangen we later door de echte content van een topic
+ *      @USERNAME@          Deze vervangen we later door de echte username van de user die de topic heeft gemaakt
+ *      @REPLYCOUNT@        Deze vervangen we later door het echte aantal replies van een topic
+ *      @TIMESTAMP@         Deze vervangen we later door de datum en tijd dat de topic is aangemaakt
  * 
- * Het vervangen doen we uiteindelijk in de functie showThreads.
+ * Het vervangen doen we uiteindelijk in de functie showTopics.
  */
 var component = '<!-- BEGIN TOPIC -->' + 
 '<a href="topic.html" class="collection-item avatar collection-link">' + 
@@ -53,8 +54,37 @@ var component = '<!-- BEGIN TOPIC -->' +
 
 /*
  * content_component wordt hieronder gevuld met de DIV uit de pagina waarin
- * we alle threads willen gaan tonen. Dus hier gaan we steeds de HTML-code,
- * zoals dit in de variabele hierboven staat, per thread toevoegen.
+ * we alle topics willen gaan tonen. Dus hier gaan we steeds de HTML-code,
+ * zoals dit in de variabele hierboven staat, per topic toevoegen.
  */
 var content_component = $('#content');
+
+function showTopics(data)
+{
+    for(var rij = 0; rij < data.length; rij++) {
+
+        var topics_component = component;
+
+        topics_component = 
+            topics_component.replace('@TOPICTITLE@', data[rij].title);
+
+        topics_component =
+            topics_component.replace('@TOPICCONTENT@', data[rij].content.substr(1, 200));    // de content kan soms te groot worden
+                                                                                        // met .substr(1,200) pakken we alleen                                                                            // de eerste 200 tekens van de content.
+        topics_component = 
+            topics_component.replace('@USERNAME@', data[rij].username);
+
+        topics_component = 
+            topics_component.replace('@REPLYCOUNT@', data[rij].ReplyCount);
+
+        topics_component = 
+            topics_component.replace('@TIMESTAMP@', data[rij].created_at);
+
+        content_component.append(topics_component);
+    }
+       
+}
+
+$.ajax(link_server)
+    .done(showTopics);
 

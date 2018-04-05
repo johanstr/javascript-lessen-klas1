@@ -28,7 +28,8 @@ function getIndexPage()
         'root', 'root');
 
         $db_sql_statement = $db_connection->prepare('
-            SELECT  threads.title,
+            SELECT  threads.id,
+                    threads.title,
                     threads.content,
                     users.username,
                     (SELECT COUNT(topics.id)
@@ -66,7 +67,8 @@ function getThreadPage($id)
         'root', 'root');
 
         $db_sql_statement = $db_connection->prepare('
-            SELECT  topics.title,
+            SELECT  topics.id,
+                    topics.title,
                     topics.content,
                     topics.thread_id,
                     topics.created_at,
@@ -112,10 +114,11 @@ function getTopicPage($id)
         $db_sql_statement = $db_connection->prepare('
             SELECT  replies.content,
                     replies.created_at,
+                    replies.updated_at,
                     users.username
             FROM replies
             INNER JOIN users ON users.id = replies.user_id
-            WHERE topics.topic_id = :topicid
+            WHERE replies.topic_id = :topicid
         ');
 
         // Verstuur de SQL nu maar naar de db server

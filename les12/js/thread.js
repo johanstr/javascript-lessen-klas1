@@ -1,9 +1,20 @@
+function findGetParameter(parameterName) {
+    var result = null,
+        tmp = [];
+    var items = location.search.substr(1).split("&");
+    for (var index = 0; index < items.length; index++) {
+        tmp = items[index].split("=");
+        if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+    }
+    return result;
+}
 /*
 *   Onderstaande globale variabele bevat de link naar een api op ons forum
 *   Deze gaan we gebruiken om met AJAX en jQuery de index pagina te vullen
 *   met database gegevens.
 */
-var link_server = "http://localhost/school/1718/klas1/js/lessen/les11/app/api.php?page=thread&id=1";
+var thread_id = findGetParameter('id');
+var link_server = "http://localhost/school/1718/klas1/js/lessen/les12/app/api.php?page=thread&id=" + thread_id;
 
 /*
  * component is een variabele waarin alle HTML-code staat die we willen gebruiken
@@ -18,7 +29,7 @@ var link_server = "http://localhost/school/1718/klas1/js/lessen/les11/app/api.ph
  * Het vervangen doen we uiteindelijk in de functie showTopics.
  */
 var component = '<!-- BEGIN TOPIC -->' + 
-'<a href="topic.html" class="collection-item avatar collection-link">' + 
+'<a href="topic.html?id=@TOPIC_ID@" class="collection-item avatar collection-link">' + 
 '<img src="http://www.gravatar.com/avatar/fc7d81525f7040b7e34b073f0218084d?s=50" alt="" class="square">' + 
 '' + 
 '<div class="row">' + 
@@ -64,6 +75,9 @@ function showTopics(data)
     for(var rij = 0; rij < data.length; rij++) {
 
         var topics_component = component;
+
+        topics_component = 
+            topics_component.replace('@TOPIC_ID@', data[rij].id);
 
         topics_component = 
             topics_component.replace('@TOPICTITLE@', data[rij].title);

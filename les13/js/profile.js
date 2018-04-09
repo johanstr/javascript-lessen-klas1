@@ -1,9 +1,23 @@
+function findGetParameter(parameterName) {
+    var result = null,
+        tmp = [];
+    var items = location.search.substr(1).split("&");
+    for (var index = 0; index < items.length; index++) {
+        tmp = items[index].split("=");
+        if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+    }
+    return result;
+}
+
+var user_id = findGetParameter('id');       // Dit is de ID van de user waarvan we de profiel
+                                            // Pagina willen zien
+
 /*
 *   Onderstaande globale variabele bevat de link naar een api op ons forum
 *   Deze gaan we gebruiken om met AJAX en jQuery de index pagina te vullen
 *   met database gegevens.
 */
-var link_server = "http://localhost/school/1718/klas1/js/lessen/les13/app/api.php?page=profile&id=1";
+var link_server = "http://localhost/school/1718/klas1/js/lessen/les13/app/api.php?page=profile&id"+user_id;
 
 /*
  * component is een variabele waarin alle HTML-code staat die we willen gebruiken

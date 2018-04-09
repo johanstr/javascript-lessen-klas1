@@ -17,7 +17,7 @@ var user_id = findGetParameter('id');       // Dit is de ID van de user waarvan 
 *   Deze gaan we gebruiken om met AJAX en jQuery de index pagina te vullen
 *   met database gegevens.
 */
-var link_server = "http://localhost/school/1718/klas1/js/lessen/les13/app/api.php?page=profile&id"+user_id;
+var link_server = "http://localhost/school/1718/klas1/js/lessen/les13/app/api.php?page=profile&id="+user_id;
 
 /*
  * component is een variabele waarin alle HTML-code staat die we willen gebruiken

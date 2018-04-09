@@ -60,22 +60,3 @@ var component = '<form method="" action="" class="col s12">' +
 var content_component = $('#content');
 
 /* HIERONDER BEGIN JE ZELF TE PROGRAMMEREN */
-function showUserData(data) 
-{
-    var form_component = component;
-
-    form_component = 
-        form_component.replace('@USERNAME@', data.username);
-
-    form_component = 
-        form_component.replace('@EMAIL@', data.email);
-
-    content_component.append(form_component);
-}
-
-$.ajax(link_server)
-    .done( function(data) {
-        showUserData(data);
-        $('#username').focus();
-     } );
-

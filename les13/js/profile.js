@@ -60,3 +60,13 @@ var component = '<form method="" action="" class="col s12">' +
 var content_component = $('#content');
 
 /* HIERONDER BEGIN JE ZELF TE PROGRAMMEREN */
+/* EEN OPLOSSING STAAT HIERONDER: */
+function showUser(data)
+{
+    component = component.replace('@USERNAME@', data.username);
+    component = component.replace('@EMAIL@', data.email);
+
+    content_component.append(component);
+}
+
+$.ajax(link_server).done(showUser);
